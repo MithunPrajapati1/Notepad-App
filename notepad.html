@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Notepad App</title>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+    }
+    .toolbar button {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      background-color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 500;
+    }
+    .toolbar button:hover {
+      background-color: #e5e7eb;
+    }
+    .editor {
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      background-color: white;
+      margin: 20px auto;
+      padding: 20px;
+      width: 90%;
+      min-height: 400px;
+      color: black;
+      outline: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    select, input[type="color"] {
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      padding: 4px;
+      background-color: white;
+      cursor: pointer;
+    }
+    h1,h2,h3,h4,h5,h6 {
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body class="h-screen w-screen">
+
+  <!-- Single Line Toolbar -->
+  <div class="toolbar flex justify-between items-center px-4 py-3 bg-white shadow-md flex-wrap gap-2">
+    
+    <!-- Left: File Actions -->
+    <div class="flex items-center gap-2">
+      <button id="newBtn">New</button>
+      <button id="openBtn">Open</button>
+      <input type="file" id="fileInput" accept=".html,.htm,.txt" style="display:none" />
+      <button id="saveBtn">Save</button>
+      <button id="saveAsBtn">Save As</button>
+    </div>
+
+    <!-- Center: Formatting Tools -->
+    <div class="flex items-center gap-2 flex-wrap justify-center">
+      <button id="boldBtn"><b>B</b></button>
+      <button id="italicBtn"><i>I</i></button>
+      <button id="underlineBtn"><u>U</u></button>
+      <button id="strikeBtn"><s>S</s></button>
+
+      <select id="headingSelect">
+        <option value="">Normal</option>
+        <option value="h1">H1</option>
+        <option value="h2">H2</option>
+        <option value="h3">H3</option>
+        <option value="h4">H4</option>
+        <option value="h5">H5</option>
+        <option value="h6">H6</option>
+      </select>
+
+      <button id="ulBtn">• List</button>
+      <button id="olBtn">1. List</button>
+
+      <select id="fontSizeSelect">
+        <option value="16px">16px</option>
+        <option value="18px">18px</option>
+        <option value="20px">20px</option>
+        <option value="22px">22px</option>
+        <option value="24px">24px</option>
+        <option value="28px">28px</option>
+      </select>
+
+      <input type="color" id="textColor" title="Text color"/>
+      <input type="color" id="bgColor" title="Background color"/>
+    </div>
+
+    <!-- Right: App + User Icons -->
+    <div class="flex items-center gap-4">
+      <ion-icon name="document-text-outline" class="text-2xl text-gray-600"></ion-icon>
+      <ion-icon name="person-circle-outline" class="text-3xl text-gray-600"></ion-icon>
+    </div>
+
+  </div>
+
+  <!-- Editor -->
+  <div id="editor" class="editor" contenteditable="true" spellcheck="true">
+    <h2>Welcome to  Notepad... </h2>
+  </div>
+  
+  <!-- JavaScript (same file or external notepad.js) -->
+  <script src="notepad.js"></script>
+
+</body>
+</html>
