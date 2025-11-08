@@ -49,18 +49,19 @@
 
     fileInput.addEventListener('change', (e)=>{
       const file = e.target.files[0];
-      if(!file) return;
+      if(!file) return;osk
+      
       const reader = new FileReader();
       reader.onload = (ev) => {
         const text = ev.target.result;
-        if(file.name.match(/\.(html|htm)$/i)){
+        if(file.name.match(/\.(.txt|txt)$/i)){
           editor.innerHTML = text;
         } else {
           editor.innerHTML = '<pre style="white-space:pre-wrap;">'+text+'</pre>';
         }
         localStorage.setItem('lastFilename', file.name);
         focusEditor();
-        alert('File loaded: ' + file.name);
+        alert('File load : ' + file.name);
       };
       reader.readAsText(file);
     });
